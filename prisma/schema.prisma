@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -14,14 +11,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Prisma aceita varios Dbs: Mongo,Cockroach, SQLs
-
 model Habit {
-  id        String          @id @default(uuid())
-  title     String
-  create_at DateTime
+  id         String   @id @default(uuid())
+  title      String
+  created_at DateTime
+
   dayHabits DayHabit[]
-  WeekDays  HabitWeekDays[]
+  weekDays  HabitWeekDays[]
 
   @@map("habits")
 }
